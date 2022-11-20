@@ -1,54 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archivos a descargar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SEMANA 15</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+	<section class="principalContainer">
+		<div class="divBotones">
 
-    <div class="container py-5">
 
-            <table id="example" class="table table-striped table-bordered" >
-                <thead>
-                    <tr>
-                        <th>Archivo</th>
-                        <th>extension</th>
-                        <th>tamaño</th>
-                        <th>enlace</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Documento</td>
-                        <td>docx</td>
-                        <td>375</td>
-                        <td><a class="btn btn-success"href="./source/doc01.docx" target="_blank">click aqui</a></td>
-                    </tr>
-                    <tr>
-                        <td>Libro</td>
-                        <td>xlxs</td>
-                        <td>50</td>
-                        <td><a class="btn btn-success"href="./source/libro02.xlsx" target="_blank">click aqui</a></td>
-                    </tr>
-                    <tr>
-                        <td>Presentacion</td>
-                        <td>pptx</td>
-                        <td>100</td>
-                        <td><a class="btn btn-success"href="./source/prese03.pptx" target="_blank">click aqui</a></td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-    </div>    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
-    <script src="./js/app.js"></script>
+			<button type="button" class="btn btn-success" id="btnCreateVertice">Crear Vértice</button>
+			<button type="button" class="btn btn-warning" id="btnCreateEdge">Crear Arista</button>
+			<button type="button" class="btn btn-primary" id="btnRoute">Calcular Ruta</button>
 
+			<form action="#" class="formVertices form">
+				<label for="positionVertice">Posición del vértice en coordenadas (x,y)</label>
+				<div class="formRow">
+					<input type="number" id="positionX" min="0" max="100" placeholder="X">
+					<input type="number" id="positionY" min="0" max="100" placeholder="Y">
+				</div>
+
+				<label for="nameVertice">Nombre del vértice</label>
+				<div class="formRow">
+					<input type="text" id="nameVertice" placeholder="Nombre del vertice">
+					<input type="submit" id="btnCrearV" value="Crear vértice" class="btn btn-secondary"></input>
+				</div>
+			</form>
+
+			<form action="#" class="formEdges form">
+				<label for="initialV">Vértice inicial</label>
+				<select id="initialV"></select>
+
+				<label for="finalV">Vértice final</label>
+				<select id="finalV"></select>
+
+				<input type="submit" id="btnCrearE" value="Crear arista" class="btn btn-secondary"></input>
+			</form>
+
+			<form action="#" class="formCalculate form">
+				<label for="initialVC">Vértice inicial</label>
+				<select id="initialVC"></select>
+
+				<label for="finalVC">Vértice final</label>
+				<select id="finalVC"></select>
+
+				<input type="submit" id="btnCalcRoute" value="Calcular ruta" class="btn btn-secondary"></input>
+			</form>
+
+			<p id="distance"></p>
+
+			<button type="button" class="btn btn-danger" id="btnClear">Limpiar</button>
+		</div>
+
+		<div class="divMapa">
+			<canvas id="mapa"></canvas>
+		</div>
+	</section>
+ 
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/Dijkstra.js"></script>
+	<script src="js/Main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>
 </html>
